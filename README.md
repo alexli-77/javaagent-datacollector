@@ -45,9 +45,6 @@ You should import this jar to your target project. Also, The following need to b
     <artifactId>maven-surefire-plugin</artifactId>
     <version>3.0.0-M5</version>
     <configuration>
-        <includes>
-            <include>testcoplit.java</include>
-        </includes>
         <argLine>-javaagent:/Path/to/excution-1.0-SNAPSHOT-jar-with-dependencies.jar=org.AgentApplication</argLine>
     </configuration>
 </plugin>
