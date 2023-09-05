@@ -1,4 +1,4 @@
-<img width="353" alt="image" src="https://github.com/alexli-77/javaagent-datacollector/assets/13618018/9a5dd4af-b2ec-41b9-be5b-e97af319ee20"># javaagent-datacollector
+# javaagent-datacollector
 A Java agent demo for tracing invoked methods.
 
 This tools is based on the java agent and instrumentation.
