@@ -16,13 +16,15 @@ In this repo, we use it typically to collect the methods that are invoked in the
 
 ### How to use this tool?
 
-- Package
+- **Package**
+
 You can use IDE or the command line to package it. Here I take the IDEA for example.
 <img width="353" alt="image" src="https://github.com/alexli-77/javaagent-datacollector/assets/13618018/0b0c8669-86ca-4eca-a0e8-9bcf8b5b9df0">
 
 Execute this command and then you can get a jar called "excution-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
-- Import
+- **Import**
+
 You should import this jar to your target project. Also, The following need to be added to pom.xml
 
 ```
@@ -40,18 +42,18 @@ You should import this jar to your target project. Also, The following need to b
 ```
 Notice: <argLine><argLine> is where you can add Java agent parameters.
 
-- Execution
+- **Execution**
 
 In the previous parts, we use the maven-surefire-plugin, now we can execute the command "surefire:test"
 <img width="540" alt="image" src="https://github.com/alexli-77/javaagent-datacollector/assets/13618018/847bfc65-8d2d-4827-aab8-522b07628791">
 
-- TODO
+- **TODO**
 
 1. The function for checking if some of these methods belong to the Java API is still too simple and should be enhanced.
 2. The amount of outputs of the Java agent is huge. It should be filtered. This case still exists.
 3. Considering batch execution, this tool is still too troublesome to use, and it is better to find a way to join automated execution.
 
-- result
+- **result**
 
 Here is a simple execution results:
 
