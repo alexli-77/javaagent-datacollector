@@ -50,7 +50,6 @@ public class MyClassTransformer implements ClassFileTransformer {
             return;
         }
         for (CtMethod declaredMethod : declaredMethods) {
-//            System.out.println(declaredMethod.getLongName());
             if (declaredMethod.getLongName().startsWith("java.") || declaredMethod.getLongName().startsWith("jdk.")) {
                 //store contents into a String
                 hashMap.put(declaredMethod.getLongName(),"");

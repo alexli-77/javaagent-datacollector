@@ -37,7 +37,7 @@ public class CollectMethods {
                 }
                 hashMap.put(className, className);
                 long end = System.currentTimeMillis();
-                System.out.println(className + " took " + (end - start) + " milliseconds ");
+                System.out.println(className + " took " + (end - start) + " milliseconds " + "size: " + hashMap.size());
             }
         } catch (Exception e) {
             e.printStackTrace();

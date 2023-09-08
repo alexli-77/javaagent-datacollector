@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Premain-Class: org.AgentApplication
+Premain-Class: org.MyAgent
 Can-Redefine-Classes: true
