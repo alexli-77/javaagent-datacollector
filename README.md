@@ -91,54 +91,26 @@ test program:
 ```
 
 result:
+
+log format : className/Latency/current hashmap size
+
 ```
-Hello world!
+[INFO] Running testcoplit
+java.util.Map,java.lang.Class,boolean took 1 milliseconds size: 46
+java.util.Map,java.util.Map took 19 milliseconds size: 47
+java.lang.Class,boolean,java.util.List took 1 milliseconds size: 48
+java.lang.String,long,long took 0 milliseconds size: 49
+java.lang.Class,java.lang.String,java.lang.annotation.Annotation[] took 12 milliseconds size: 50
+java.lang.Object,java.lang.Class,java.lang.Class took 0 milliseconds size: 51
+init ok
+java.lang.Object,java.lang.Object[] took 2 milliseconds size: 52
 20
-java.util.function.BiConsumer.accept(java.lang.Object,java.lang.Object)
 Bob is 20 years old
 John is 30 years old
 Mary is 25 years old
-java
-org.junit.runner.notification.RunNotifier$7.notifyListener(org.junit.runner.notification.RunListener)
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in testcoplit
-org.junit.runner.notification.RunNotifier$2.notifyListener(org.junit.runner.notification.RunListener)
-org.apache.maven.surefire.api.suite.RunResult.timeout(org.apache.maven.surefire.api.suite.RunResult)
-org.apache.maven.surefire.api.suite.RunResult.failure(org.apache.maven.surefire.api.suite.RunResult,java.lang.Exception)
-org.apache.maven.surefire.api.suite.RunResult.errorCode(org.apache.maven.surefire.api.suite.RunResult,java.lang.String,boolean)
-org.apache.maven.surefire.api.suite.RunResult.getStackTrace(java.lang.Exception)
-org.apache.maven.surefire.api.suite.RunResult.getCompletedCount()
-org.apache.maven.surefire.api.suite.RunResult.getErrors()
-org.apache.maven.surefire.api.suite.RunResult.getFlakes()
-org.apache.maven.surefire.api.suite.RunResult.getFailures()
-org.apache.maven.surefire.api.suite.RunResult.getSkipped()
-org.apache.maven.surefire.api.suite.RunResult.getFailsafeCode()
-org.apache.maven.surefire.api.suite.RunResult.isErrorFree()
-org.apache.maven.surefire.api.suite.RunResult.isInternalError()
-org.apache.maven.surefire.api.suite.RunResult.isFailureOrTimeout()
-org.apache.maven.surefire.api.suite.RunResult.isFailure()
-org.apache.maven.surefire.api.suite.RunResult.getFailure()
-org.apache.maven.surefire.api.suite.RunResult.isTimeout()
-org.apache.maven.surefire.api.suite.RunResult.aggregate(org.apache.maven.surefire.api.suite.RunResult)
-org.apache.maven.surefire.api.suite.RunResult.noTestsRun()
-org.apache.maven.surefire.api.suite.RunResult.equals(java.lang.Object)
-org.apache.maven.surefire.api.suite.RunResult.hashCode()
-org.apache.maven.surefire.booter.ForkedBooter$6.update(org.apache.maven.surefire.api.booter.Command)
-org.apache.maven.surefire.booter.ForkedBooter$7.run()
-java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.getDelay(java.util.concurrent.TimeUnit)
-java.util.concurrent.FutureTask.report(int)
-java.util.concurrent.Callable.call()
-java.util.concurrent.Executors$RunnableAdapter.call()
-java.util.concurrent.ThreadPoolExecutor$Worker.run()
-java.util.concurrent.locks.LockSupport.setBlocker(java.lang.Thread,java.lang.Object)
-sun.nio.ch.Interruptible.interrupt(java.lang.Thread)
-org.apache.maven.surefire.booter.ForkedBooter$1.run()
-java.util.HashMap$KeyIterator.next()
-java.util.IdentityHashMap$KeySet.iterator()
-java.util.IdentityHashMap$KeyIterator.next()
-java.util.IdentityHashMap$IdentityHashMapIterator.hasNext()
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+java.lang.Class,org.apache.maven.surefire.common.junit4.Notifier,org.junit.runner.manipulation.Filter took 470 milliseconds size: 53
+java.lang.Class,org.apache.maven.surefire.common.junit4.Notifier took 471 milliseconds size: 54
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.477 s - in testcoplit
 ```
+
+
