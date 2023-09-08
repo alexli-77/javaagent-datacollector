@@ -1,55 +1,26 @@
 package org;
-import javassist.*;
-import java.lang.instrument.Instrumentation;
+
+//import java.lang.instrument.Instrumentation;
+//import java.lang.instrument.UnmodifiableClassException;
 
 public class AgentApplication {
-    public static void premain(String arg, Instrumentation instrumentation) {
-        instrumentation.addTransformer((loader,className,classBeingRedefined,protectionDomain,classfileBuffer)->{
-            String javaClassName = className.replace("/", ".");
-            CtClass ctClass= null;
-            CtMethod[] declaredMethods = null;
-            ClassPool classPool = ClassPool.getDefault();
-            // get bytecode
-            try {
-                ctClass = classPool.getCtClass(javaClassName);
-            } catch (NotFoundException e) {
-                throw new RuntimeException(e);
-            }
-            declaredMethods = ctClass.getDeclaredMethods();
-            //check if java api is used
-            ApiCheck.check(declaredMethods);
-            return classfileBuffer;
-        });
-    }
-//    public static void premain(String arg, Instrumentation instrumentation) {
-//        instrumentation.addTransformer((loader,className,classBeingRedefined,protectionDomain,classfileBuffer)->{
-//            if (className == null) {
-//                // null
-//                return null;
+
+//    public static void premain(String arg, Instrumentation instrumentation) throws UnmodifiableClassException {
+//        System.out.println("Hello world! agent");
+//        MyClassTransformer transformer = new MyClassTransformer();
+//        instrumentation.addTransformer(transformer);
+//        Class classes[] = instrumentation.getAllLoadedClasses();
+//        for (int i = 0; i < classes.length; i++) {
+////            inst.retransformClasses(classes[i]);
+//            Class aClass = classes[i];
+//            String name = aClass.getName();
+//            System.out.println("Reloading: " + name);
+//            if (name.equals("com.lgydojava.jvmdemo.MyTestMain")) {
+//                System.out.println("Reloading: " + name);
+//                instrumentation.retransformClasses(aClass);
+//                break;
 //            }
-//            String javaClassName = className.replace("/", ".");
-//
-//            CtClass ctClass= null;
-//            CtMethod[] declaredMethods = null;
-//            ClassPool classPool = ClassPool.getDefault();
-//            // get bytecode
-//            try {
-//                ctClass = classPool.getCtClass(javaClassName);
-//            } catch (NotFoundException e) {
-//                throw new RuntimeException(e);
-//            }
-//            try {
-//                declaredMethods = ctClass.getDeclaredMethods();
-//                for (CtMethod declaredMethod : declaredMethods) {
-//                    declaredMethod.insertBefore("System.out.println(\"before invoke : "+ declaredMethod.getLongName() + "\");");
-//                }
-//                return ctClass.toBytecode();
-//            } catch (Exception e) {
-//                System.out.println("error: " + e.getMessage() + " " + className);
-//            }
-//            //check if java api is used
-//            ApiCheck.check(declaredMethods);
-//            return classfileBuffer;
-//        });
+//        }
 //    }
+
 }
