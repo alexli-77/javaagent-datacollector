@@ -1,23 +1,28 @@
 package org;
 
 import net.bytebuddy.asm.Advice;
+import org.common.Logging;
 
 import java.util.HashMap;
 
+
 public class CollectMethods {
+
     public static HashMap<String,String> hashMap = new HashMap<>();
+
+    public static Logging logging = new Logging();
     public CollectMethods() {
         System.out.println("CollectMethods init");
     }
     @Advice.OnMethodEnter
-    static long enter(@Advice.Origin String method) {
+    public static long enter(@Advice.Origin String method) {
 
         long start = System.currentTimeMillis();
         return start;
     }
 
     @Advice.OnMethodExit
-    static void exit(@Advice.Origin String method,@Advice.Enter long start) {
+    public static void exit(@Advice.Origin String method,@Advice.Enter long start) {
 
         if(method == null || method.isEmpty()) {
             return;
@@ -35,13 +40,15 @@ public class CollectMethods {
                 if (hashMap.containsKey(className)) {
                     return;
                 }
-                hashMap.put(className, className);
                 long end = System.currentTimeMillis();
-                System.out.println(className + " took " + (end - start) + " milliseconds " + "size: " + hashMap.size());
+                hashMap.put(className, className);
+                logging.logToFile(className + " took " + (end - start) + " milliseconds " + "size: " + hashMap.size());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    }
+    public static HashMap<String,String> getHashMap() {
+        return hashMap;
     }
 }

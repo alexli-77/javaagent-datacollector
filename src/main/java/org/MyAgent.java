@@ -14,17 +14,20 @@ import java.lang.instrument.Instrumentation;
  * @version 1.0
  */
 public class MyAgent {
-    public static void premain(String agentArgs, Instrumentation inst) {
+    public static void premain(String agentArgs, Instrumentation inst){
         System.out.println("MyAgent init...");
+
 
         AgentBuilder.Listener listener = new AgentBuilder.Listener() {
             @Override
             public void onDiscovery(String s, ClassLoader classLoader, JavaModule javaModule, boolean b) {
+//                System.out.println("onDiscovery");
 
             }
 
             @Override
             public void onTransformation(TypeDescription typeDescription, ClassLoader classLoader, JavaModule javaModule, boolean b, DynamicType dynamicType) {
+//                System.out.println("onTransformation");
 
             }
 
@@ -35,18 +38,19 @@ public class MyAgent {
 
             @Override
             public void onError(String s, ClassLoader classLoader, JavaModule javaModule, boolean b, Throwable throwable) {
+//                System.out.println("onError");
 
             }
 
             @Override
             public void onComplete(String s, ClassLoader classLoader, JavaModule javaModule, boolean b) {
+//                System.out.println("onComplete");
 
             }
 
         };
 
-        new AgentBuilder
-                .Default()
+        new AgentBuilder.Default()
                 //指定需要拦截的类
                 .type(ElementMatchers.any())
                 .transform((builder, typeDescription, classLoader, module) -> builder
@@ -54,5 +58,6 @@ public class MyAgent {
                         .intercept(Advice.to(CollectMethods.class)))
                 .with(listener)
                 .installOn(inst);
+        System.out.println("MyAgent over...");
     }
 }

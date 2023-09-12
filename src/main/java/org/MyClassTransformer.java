@@ -4,18 +4,15 @@ import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.instrument.ClassFileTransformer;
-import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 
+@Slf4j
 public class MyClassTransformer implements ClassFileTransformer {
-    public HashMap<String,String> hashMap;
-    public MyClassTransformer() {
-        System.out.println("MyClassTransformer init");
-        hashMap = new HashMap<>();
-    }
+    public HashMap<String,String> hashMap = new HashMap<>();
     @Override
     public byte[] transform(
             ClassLoader loader,
@@ -23,7 +20,7 @@ public class MyClassTransformer implements ClassFileTransformer {
             Class<?> classBeingRedefined,
             ProtectionDomain protectionDomain,
             byte[] classfileBuffer
-    ) throws IllegalClassFormatException {
+    ) {
         // Implement your filtering logic here
         // You can use libraries like ASM or Byte Buddy to work with bytecode
         // Filter and modify methods as needed
@@ -53,6 +50,7 @@ public class MyClassTransformer implements ClassFileTransformer {
             if (declaredMethod.getLongName().startsWith("java.") || declaredMethod.getLongName().startsWith("jdk.")) {
                 //store contents into a String
                 hashMap.put(declaredMethod.getLongName(),"");
+                log.info("java api used: " + declaredMethod.getLongName());
             }
         }
     }
