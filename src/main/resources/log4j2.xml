@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARNING">
+
+  <Properties>
+    <Property name="filename">target/output.log</Property>
+  </Properties>
+  <Appenders>
+    <File name="File" fileName="./target/test.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+    </File>
+<!--    <Console name="console" target="SYSTEM_OUT">-->
+<!--      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+8} %-5p [%t] %c{3} - %m%n%ex"/>-->
+<!--    </Console>-->
+  </Appenders>
+
+  <Loggers>
+    <Root level="${env:ROOT_LOG_LEVEL:-error}">
+<!--      <AppenderRef ref="console"/>-->
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+
+</Configuration>
