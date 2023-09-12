@@ -51,7 +51,7 @@ public class MyAgent {
         };
 
         new AgentBuilder.Default()
-                //指定需要拦截的类
+                //set filter rules
                 .type(ElementMatchers.any())
                 .transform((builder, typeDescription, classLoader, module) -> builder
                         .method(ElementMatchers.any())
