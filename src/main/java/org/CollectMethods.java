@@ -10,7 +10,7 @@ public class CollectMethods {
 
     public static HashMap<String,String> hashMap = new HashMap<>();
 
-    public static Logging logging = new Logging();
+    public static Logging logging = new Logging("CollectMethods");
     public CollectMethods() {
         System.out.println("CollectMethods init");
     }

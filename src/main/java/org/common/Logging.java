@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import static util.FileUtil.writeTmpFile;
 
 public class Logging {
-    public static Logger logger = Logger.getLogger("Logging");
+    public static Logger logger;
     public static FileHandler fileHandler;
 
     static {
@@ -22,6 +22,12 @@ public class Logging {
 
     //Logging constructor
     public Logging() {
+        logger = Logger.getLogger("Logging");
+        logger.addHandler(this.fileHandler);
+    }
+
+    public Logging(String classname) {
+        logger = Logger.getLogger(classname);
         logger.addHandler(this.fileHandler);
     }
 
