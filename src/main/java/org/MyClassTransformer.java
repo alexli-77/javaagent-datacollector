@@ -4,14 +4,14 @@ import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.NotFoundException;
-import lombok.extern.slf4j.Slf4j;
+import org.common.Logging;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 
-@Slf4j
 public class MyClassTransformer implements ClassFileTransformer {
+    public static Logging logging = new Logging();
     public HashMap<String,String> hashMap = new HashMap<>();
     @Override
     public byte[] transform(
@@ -50,7 +50,7 @@ public class MyClassTransformer implements ClassFileTransformer {
             if (declaredMethod.getLongName().startsWith("java.") || declaredMethod.getLongName().startsWith("jdk.")) {
                 //store contents into a String
                 hashMap.put(declaredMethod.getLongName(),"");
-                log.info("java api used: " + declaredMethod.getLongName());
+                logging.logToFile("java api used: " + declaredMethod.getLongName());
             }
         }
     }
